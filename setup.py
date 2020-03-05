@@ -5,15 +5,16 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="hypixelapi",
-    version="0.1.0",
+    version="0.1.4",
     author="MylesMor",
     author_email="hello@mylesmor.dev",
-    description="A Python 3 wrapper for the HypixelAPI OpenAPI",
+    license="MIT",
+    description="A Python 3 wrapper for the HypixelAPI",
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/MylesMor/hypixelapi",
-    packages=setuptools.find_packages(exclude=("tests","examples",)),
-    install_requires=requirements,
+    packages=setuptools.find_packages(),
+    install_requires=["requests", "argparse"],
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",

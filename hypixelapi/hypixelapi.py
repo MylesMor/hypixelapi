@@ -1,6 +1,5 @@
 import requests
 import json
-import util
 from urllib.parse import quote
 
 class HypixelAPI():
@@ -21,7 +20,7 @@ class HypixelAPI():
         :param uuid: A player's UUID (either trimmed form or one with dashes)
         :returns: Player's full JSON
         """
-        r = requests.get(self.url + "player?uuid=" + util.strip_uuid(uuid) + "&key=" + self.token)
+        r = requests.get(self.url + "player?uuid=" + strip_uuid(uuid) + "&key=" + self.token)
         resp = json.loads(r.text)
         return self.__check_response(resp)
 
@@ -35,7 +34,7 @@ class HypixelAPI():
         resp = self.get_player_json(uuid)
         player_dict = {}
         player = resp['player']
-        player_dict['uuid'] = util.strip_uuid(uuid)
+        player_dict['uuid'] = strip_uuid(uuid)
         player_dict['displayname'] = player['displayname']
         player_dict['rank'] = self.__retrieve_rank(resp)
         try:
@@ -67,7 +66,7 @@ class HypixelAPI():
         for key, value in profiles.items():
             r = requests.get(self.url + "skyblock/profile?profile=" + key + "&key=" + self.token)
             resp = json.loads(r.text)
-            final_dict[key] = resp['profile']['members'][util.strip_uuid(uuid)]
+            final_dict[key] = resp['profile']['members'][strip_uuid(uuid)]
         return final_dict
 
     def get_player_rank(self, uuid):
@@ -105,7 +104,7 @@ class HypixelAPI():
         :param uuid: A player's UUID (either trimmed form or one with dashes)
         :returns: The guild information as a dictionary
         """
-        r = requests.get(self.url + "guild?player=" + util.strip_uuid(uuid) + "&key=" + self.token)
+        r = requests.get(self.url + "guild?player=" + strip_uuid(uuid) + "&key=" + self.token)
         resp = json.loads(r.text)
         return self.__check_response(resp)
 
@@ -115,7 +114,7 @@ class HypixelAPI():
         :param uuid: A guild UUID
         :returns: The guild information as a dictionary
         """
-        r = requests.get(self.url + "guild?id=" + util.strip_uuid(uuid) + "&key=" + self.token)
+        r = requests.get(self.url + "guild?id=" + strip_uuid(uuid) + "&key=" + self.token)
         resp = json.loads(r.text)
         return self.__check_response(resp)
 
@@ -132,7 +131,7 @@ class HypixelAPI():
         :param uuid: A player's UUID (either trimmed form or one with dashes)
         :returns: A list of the player's friends as a dictionary
         """
-        r = requests.get(self.url + "friends?uuid=" + util.strip_uuid(uuid) + "&key=" + self.token)
+        r = requests.get(self.url + "friends?uuid=" + strip_uuid(uuid) + "&key=" + self.token)
         resp = json.loads(r.text)
         return self.__check_response(resp)
 
@@ -178,7 +177,7 @@ class HypixelAPI():
         :param uuid: A player's UUID (either trimmed form or one with dashes)
         :returns: Player's session information as a dictionary
         """
-        r = requests.get(self.url + "session?uuid=" + util.strip_uuid(uuid) + "&key=" + self.token)
+        r = requests.get(self.url + "session?uuid=" + strip_uuid(uuid) + "&key=" + self.token)
         resp = json.loads(r.text)
         return self.__check_response(resp)
 
@@ -198,7 +197,7 @@ class HypixelAPI():
         :param uuid: A player's UUID (either trimmed form or one with dashes)
         :returns: Player's auction data as a dictionary
         """
-        r = requests.get(self.url + "skyblock/auction?player=" + util.strip_uuid(uuid) + "&key=" + self.token)
+        r = requests.get(self.url + "skyblock/auction?player=" + strip_uuid(uuid) + "&key=" + self.token)
         resp = json.loads(r.text)
         return self.__check_response(resp)
 
@@ -208,7 +207,7 @@ class HypixelAPI():
         :param uuid: A Skyblock profile ID
         :returns: Profile's auction information as a dictionary
         """
-        r = requests.get(self.url + "skyblock/auction?profile=" + util.strip_uuid(uuid) + "&key=" + self.token)
+        r = requests.get(self.url + "skyblock/auction?profile=" + strip_uuid(uuid) + "&key=" + self.token)
         resp = json.loads(r.text)
         return self.__check_response(resp)
 
@@ -218,7 +217,7 @@ class HypixelAPI():
         :param uuid: A Skyblock auction ID
         :returns: Auction information as a dictionary
         """
-        r = requests.get(self.url + "skyblock/auction?uuid=" + util.strip_uuid(uuid) + "&key=" + self.token)
+        r = requests.get(self.url + "skyblock/auction?uuid=" + strip_uuid(uuid) + "&key=" + self.token)
         resp = json.loads(r.text)
         return self.__check_response(resp)
 
@@ -258,14 +257,14 @@ class HypixelAPI():
         if player_uuid is None:
             return resp
         else:
-            return resp['profile']['members'][util.strip_uuid(player_uuid)]
+            return resp['profile']['members'][strip_uuid(player_uuid)]
 
     def __check_response(self, resp):
         """Private function used for checking if the request was successful
 
         :returns: The response if valid
         """
-        if not util.check_success(resp):
+        if not check_success(resp):
             raise HypixelError(resp['cause'])
         if "player" in resp:
             if resp['player'] == None:
@@ -304,3 +303,11 @@ class PlayerNotFoundError(Exception):
     """Exception that is thrown when a player isn't found.
         Can be caught with ``except hypixelapi.PlayerNotFoundError``"""
     pass
+
+def strip_uuid(uuid):
+    return uuid.replace("-", "")
+
+def check_success(resp):
+    if "success" in resp:
+        return resp['success']
+    return False
