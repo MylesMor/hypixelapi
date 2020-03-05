@@ -7,7 +7,6 @@ jobs:
   
   build-and-test:
     executor: python/default
-    working-directory: ~/hypixelapi
     steps:
       - checkout
       - python/load-cache
