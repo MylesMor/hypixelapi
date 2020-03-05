@@ -17,12 +17,3 @@ This is an unofficial Python3 wrapper for the HypixelAPI, inspired by `Snuggle's
    examples
    updates
    faq
-
-
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
