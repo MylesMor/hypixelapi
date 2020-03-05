@@ -8,7 +8,23 @@ Documentation is available here: https://hypixelapi.readthedocs.io/
 
 ## Installation
 
-Available on PyPi very soon!
+To install run:
+
+``pip install hypixelapi``
+
+## Getting Started
+
+First, run /api on the Hypixel server to get your own key.
+
+``from hypixelapi import HypixelAPI
+
+api = HypixelAPI('your-key-here')
+response = api.get_player_json('uuid')
+print(response)
+``
+
+For more detailed documentation and available functions, visit:
+https://hypixelapi.readthedocs.io/
 
 ## Examples
 
