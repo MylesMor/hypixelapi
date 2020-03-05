@@ -6,6 +6,11 @@ This is an unofficial Python3 wrapper for the Hypixel API inspired by [Snuggle's
 
 Documentation is available here: https://hypixelapi.readthedocs.io/
 
+For the types of JSON received by each command, please reference
+[this official documentation[(https://github.com/HypixelDev/PublicAPI/tree/master/Documentation/methods)],
+or print the JSON response to view it yourself.
+
+
 ## Installation
 
 To install run:
