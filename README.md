@@ -12,8 +12,7 @@ Current version: `0.1.4`
 
 Documentation is available here: https://hypixelapi.readthedocs.io/
 
-For the types of JSON received by each command, please reference
-[this official documentation[(https://github.com/HypixelDev/PublicAPI/tree/master/Documentation/methods)],
+For the types of JSON received by each command, please reference [this official documentation](https://github.com/HypixelDev/PublicAPI/tree/master/Documentation/methods)],
 or print the JSON response to view it yourself.
 
 
@@ -27,8 +26,8 @@ To install run:
 
 First, run /api on the Hypixel server to get your own key.
 
-```from hypixelapi import HypixelAPI
-
+```
+from hypixelapi import HypixelAPI
 api = HypixelAPI('your-key-here')
 response = api.get_player_json('uuid')
 print(response)
