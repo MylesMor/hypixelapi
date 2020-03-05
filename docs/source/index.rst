@@ -5,13 +5,14 @@
 
 Welcome to hypixelapi's documentation!
 ======================================
-.. automodule:: hypixelapi
-    :members:
 
 
 .. toctree::
    :maxdepth: 2
-   :caption: Contents:
+
+   api
+   updates
+   faq
 
 
 
