@@ -6,8 +6,7 @@
 Welcome to hypixelapi's documentation!
 ======================================
 
-This is an unofficial Python3 wrapper for the HypixelAPI, inspired by [Snuggle's
-hypixel.py](https://github.com/Snuggle/hypixel.py).
+This is an unofficial Python3 wrapper for the HypixelAPI, inspired by `Snuggle's hypixel.py <https://github.com/Snuggle/hypixel.py/>`_.
 
 
 .. toctree::
