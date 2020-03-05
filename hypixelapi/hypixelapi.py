@@ -89,13 +89,33 @@ class HypixelAPI():
         resp = json.loads(r.text)
         return self.__check_response(resp)
 
-    def find_guild_by_name(self, name):
-        """Finds guild UUID by name.
+    def get_guild_by_name(self, name):
+        """Finds guild information by name
 
         :param name: The name of a guild
-        :returns: The UUID of the guild as a dictionary
+        :returns: The guild information as a dictionary
         """
-        r = requests.get(self.url + "findGuild?byName=" + quote(name) + "&key=" + self.token)
+        r = requests.get(self.url + "guild?name=" + quote(name) + "&key=" + self.token)
+        resp = json.loads(r.text)
+        return self.__check_response(resp)
+
+    def get_guild_by_player(self, uuid):
+        """Retrieves guild information by member UUID
+
+        :param uuid: A player's UUID (either trimmed form or one with dashes)
+        :returns: The guild information as a dictionary
+        """
+        r = requests.get(self.url + "guild?player=" + util.strip_uuid(uuid) + "&key=" + self.token)
+        resp = json.loads(r.text)
+        return self.__check_response(resp)
+
+    def get_guild_by_guildid(self, uuid):
+        """Retrieves guild information by guild ID
+
+        :param uuid: A guild UUID
+        :returns: The guild information as a dictionary
+        """
+        r = requests.get(self.url + "guild?id=" + util.strip_uuid(uuid) + "&key=" + self.token)
         resp = json.loads(r.text)
         return self.__check_response(resp)
 
@@ -171,6 +191,7 @@ class HypixelAPI():
         resp = json.loads(r.text)
         return self.__check_response(resp)
 
+
     def get_skyblock_auctions_by_player(self, uuid):
         """Gets information about a player's auctions
 
@@ -201,6 +222,7 @@ class HypixelAPI():
         resp = json.loads(r.text)
         return self.__check_response(resp)
 
+
     def get_current_skyblock_auctions(self, page=0):
         """Gets information about Skyblock's current auctions
 
@@ -208,7 +230,7 @@ class HypixelAPI():
             1000 results on each page)
         :returns: Current auction information as a dictionary
         """
-        r = requests.get(self.url + "skyblock/auctions?page=" + page + "&key=" + self.token)
+        r = requests.get(self.url + "skyblock/auctions?page=" + str(page) + "&key=" + self.token)
         resp = json.loads(r.text)
         return self.__check_response(resp)
 
