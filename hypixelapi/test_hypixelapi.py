@@ -132,8 +132,6 @@ if __name__ == '__main__':
     parser.add_argument('unittest_args', nargs='*')
 
     args = parser.parse_args()
-    # TODO: Go do something with args.input and args.filename
     TestHypixelAPI.TOKEN = args.input
-    # Now set the sys.argv to the unittest_args (leaving sys.argv[0] alone)
     sys.argv[1:] = args.unittest_args
     unittest.main()
