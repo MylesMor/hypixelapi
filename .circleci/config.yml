@@ -13,7 +13,7 @@ jobs:
       - python/install-deps
       - python/save-cache
       - run:
-          command: ./hypixelapi/test_hypixelapi.py --input ${KEY}
+          command: py ./hypixelapi/test_hypixelapi.py --input ${KEY}
           name: Test
 
 workflows:
