@@ -1,6 +1,7 @@
 # hypixelapi
 
-[![PyPI version](https://badge.fury.io/py/hypixelapi.svg)](https://badge.fury.io/py/hypixelapi) [![Documentation Status](https://readthedocs.org/projects/hypixelapi/badge/?version=latest)](https://hypixelapi.readthedocs.io/en/latest/?badge=latest)
+[![PyPI version](https://badge.fury.io/py/hypixelapi.svg)](https://badge.fury.io/py/hypixelapi) [![Documentation Status](https://readthedocs.org/projects/hypixelapi/badge/?version=latest)](https://hypixelapi.readthedocs.io/en/latest/?badge=latest) [![CircleCI](https://circleci.com/gh/MylesMor/hypixelapi/tree/master.svg?style=svg)](https://circleci.com/gh/MylesMor/hypixelapi/tree/master)
+
 
 
 
