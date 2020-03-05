@@ -13,6 +13,7 @@ This is an unofficial Python3 wrapper for the HypixelAPI, inspired by `Snuggle's
    :maxdepth: 2
 
    api
+   examples
    updates
    faq
 
