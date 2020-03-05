@@ -12,6 +12,7 @@ This is an unofficial Python3 wrapper for the HypixelAPI, inspired by `Snuggle's
 .. toctree::
    :maxdepth: 2
 
+   install
    api
    examples
    updates
