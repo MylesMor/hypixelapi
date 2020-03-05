@@ -1,2 +1,5 @@
-.. autoclass:: HypixelAPI
+API documentation
+======================================
+
+.. automodule:: hypixelapi
     :members:

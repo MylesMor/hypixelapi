@@ -22,6 +22,7 @@ copyright = '2020, MylesMor'
 author = 'MylesMor'
 
 master_doc = 'index'
+html_theme = "sphinx_rtd_theme"
 
 # The full version, including alpha/beta/rc tags
 release = '0.1.0'
